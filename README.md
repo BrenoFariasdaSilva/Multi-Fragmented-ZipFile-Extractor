@@ -80,6 +80,8 @@ Multi-Fragmented-ZipFile-Extractor is a command-line Java application that merge
 
 ## Installation:
 
+Installation involves setting up Java and Maven, which are required to build and run the program. Follow the instructions for your operating system below.
+
 ### Windows
 
 1. Download and install [Java JDK 17+](https://adoptopenjdk.net/) and [Maven](https://maven.apache.org/download.cgi).
