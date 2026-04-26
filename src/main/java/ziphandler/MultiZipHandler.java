@@ -44,4 +44,20 @@ public class MultiZipHandler {
         }
     }
 
+    private static List<String> collectInputZips(String[] args) {
+
+        // Create list for storing input ZIP paths
+        List<String> zipInputs = new ArrayList<>();
+
+        // Iterate over arguments starting from index 1
+        for (int i = 1; i < args.length; i++) {
+
+            // Add each ZIP path to the list
+            zipInputs.add(args[i]);
+        }
+
+        // Return collected input ZIP list
+        return zipInputs;
+    }
+
 }
