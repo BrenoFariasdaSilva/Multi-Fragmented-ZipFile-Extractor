@@ -16,6 +16,7 @@ Multi-Fragmented-ZipFile-Extractor is a Java command-line tool for merging multi
 
 <div align="center">
 
+![Build Status](https://github.com/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor/actions/workflows/maven-build.yml/badge.svg)
 ![Java 25](https://img.shields.io/badge/Java-25-blue?logo=openjdk)
 ![Maven Build](https://img.shields.io/badge/Maven-Build-orange?logo=apachemaven)
 ![GitHub License](https://img.shields.io/github/license/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
