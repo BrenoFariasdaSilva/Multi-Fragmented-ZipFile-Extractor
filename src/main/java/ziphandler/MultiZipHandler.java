@@ -97,4 +97,14 @@ public class MultiZipHandler {
         deleteRecursive(tempRoot);
     }
 
+    private static void verifyZipExists(File zipFile) {
+
+        // Verify file existence
+        if (!zipFile.exists()) {
+
+            // Fail execution if ZIP is missing
+            throw new IllegalArgumentException("ZIP not found: " + zipFile.getAbsolutePath());
+        }
+    }
+
 }
