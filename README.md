@@ -59,6 +59,14 @@ Multi-Fragmented-ZipFile-Extractor is a Java command-line tool for merging multi
 
 Multi-Fragmented-ZipFile-Extractor is a command-line Java application that merges multiple ZIP files (including split archives) into a single ZIP file. It uses Zip4j for all ZIP operations, processes files in a temporary workspace, and outputs results as JSON for seamless integration with Python or other automation tools.
 
+## Requirements
+
+- Java Development Kit (JDK) 17 or newer
+- Maven (for build and dependency management)
+- Internet connection (for Maven to download dependencies on first build)
+- Cross-platform: Works on Windows, Linux, and macOS
+- No manual installation of Zip4j required (handled by Maven)
+
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. If you have suggestions for improving the code, your insights will be highly welcome.
