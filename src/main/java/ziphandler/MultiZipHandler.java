@@ -152,10 +152,15 @@ public class MultiZipHandler {
             // Extract ZIP contents into target directory
             zf.extractAll(extractDir.getAbsolutePath());
 
+        } catch (net.lingala.zip4j.exception.ZipException e) {
+
+            // Handle Zip4j-specific extraction failures
+            throw new IllegalStateException("Extraction failed for: " + zipFile.getName(), e);
+
         } catch (Exception e) {
 
-            // Fail extraction with contextual message
-            throw new IllegalStateException("Extraction failed for: " + zipFile.getName(), e);
+            // Handle any other unexpected failures
+            throw new IllegalStateException("Unexpected extraction error for: " + zipFile.getName(), e);
         }
     }
 
