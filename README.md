@@ -43,10 +43,13 @@ Multi-Fragmented-ZipFile-Extractor is a Java command-line tool for merging multi
   - [Setup](#setup)
     - [Clone the repository](#clone-the-repository)
   - [Installation:](#installation)
-  - [Run Programing Language Code:](#run-programing-language-code)
+    - [Windows](#windows)
+    - [Linux (Debian/Ubuntu)](#linux-debianubuntu)
+    - [macOS](#macos)
+  - [Run Program](#run-program)
     - [Dependencies](#dependencies)
   - [Usage](#usage)
-  - [Results - Optional](#results---optional)
+  - [Results](#results)
   - [Contributing](#contributing)
   - [Collaborators](#collaborators)
   - [License](#license)
@@ -54,69 +57,7 @@ Multi-Fragmented-ZipFile-Extractor is a Java command-line tool for merging multi
 
 ## Introduction
 
-Detailed project description.
-
-## Requirements
-
-Bullet points of the requirements.
-
-## Setup
-
-### Clone the repository
-
-1. Clone the repository with the following command:
-
-   ```bash
-   git clone https://github.com/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor.git
-   cd Multi-Fragmented-ZipFile-Extractor
-   ```
-
-## Installation:
-
-* Programing Language:
-
-  * Manually:
-      ```bash
-      # Programing Language:
-      sudo apt install program-language -y
-      ```
-
-  * Using Makefile:
-      ```bash
-      make install
-      ```
-
-  * Using ShellScript:
-      ```bash
-      chmod +x install.sh
-      sudo ./install.sh
-      ```  
-
-## Run Programing Language Code:
-
-```bash
-# Command here 
-```
-
-### Dependencies
-
-1. Install the project dependencies with the following command:
-
-   ```bash
-   make dependencies
-   ```
-
-## Usage
-
-In order to run the project, run the following command:
-
-```bash
-make run
-```
-
-## Results - Optional
-
-Discuss the results obtained in the project.
+Multi-Fragmented-ZipFile-Extractor is a command-line Java application that merges multiple ZIP files (including split archives) into a single ZIP file. It uses Zip4j for all ZIP operations, processes files in a temporary workspace, and outputs results as JSON for seamless integration with Python or other automation tools.
 
 ## Contributing
 
