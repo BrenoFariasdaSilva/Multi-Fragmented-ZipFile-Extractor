@@ -67,6 +67,17 @@ Multi-Fragmented-ZipFile-Extractor is a command-line Java application that merge
 - Cross-platform: Works on Windows, Linux, and macOS
 - No manual installation of Zip4j required (handled by Maven)
 
+## Setup
+
+### Clone the repository
+
+1. Clone the repository with the following command:
+
+   ```bash
+   git clone https://github.com/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor.git
+   cd Multi-Fragmented-ZipFile-Extractor
+   ```
+
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. If you have suggestions for improving the code, your insights will be highly welcome.
