@@ -91,6 +91,16 @@ Multi-Fragmented-ZipFile-Extractor is a command-line Java application that merge
    mvn -v
    ```
 
+### Linux (Debian/Ubuntu)
+
+```bash
+sudo apt update
+sudo apt install openjdk-17-jdk maven -y
+java -version
+javac -version
+mvn -v
+```
+
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. If you have suggestions for improving the code, your insights will be highly welcome.
