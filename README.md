@@ -101,6 +101,18 @@ javac -version
 mvn -v
 ```
 
+### macOS
+
+```bash
+brew install openjdk@17 maven
+export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
+java -version
+javac -version
+mvn -v
+```
+
+*No additional dependencies are required. Zip4j is managed by Maven.*
+
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. If you have suggestions for improving the code, your insights will be highly welcome.
