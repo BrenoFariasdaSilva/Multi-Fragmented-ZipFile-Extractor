@@ -165,6 +165,10 @@ This will create `merged.zip` containing the merged contents of `part1.zip` and 
 
 The program is designed for automation and can be called from Python or other languages. It prints a JSON object to stdout indicating success or error, which can be parsed for workflow integration.
 
+## Results
+
+The output ZIP will contain the merged contents of all input ZIP files. The process is atomic and cleans up all temporary files after execution. Any errors (such as missing input files) are reported as JSON to stdout.
+
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. If you have suggestions for improving the code, your insights will be highly welcome.
