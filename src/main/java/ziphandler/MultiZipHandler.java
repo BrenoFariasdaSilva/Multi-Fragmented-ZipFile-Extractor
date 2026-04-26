@@ -1,4 +1,12 @@
-package ziphandler;  // Define package structure for project organization
+package ziphandler;  // Define package structure for proper project organization
+
+import net.lingala.zip4j.ZipFile;  // Import ZipFile for ZIP extraction and creation
+import net.lingala.zip4j.model.ZipParameters;  // Import ZIP configuration parameters
+
+import java.io.File;  // File handling for filesystem operations
+import java.nio.file.Files;  // Temporary directory creation utilities
+import java.util.ArrayList;  // Dynamic list implementation
+import java.util.List;  // List interface
 
 public class MultiZipHandler {
 
