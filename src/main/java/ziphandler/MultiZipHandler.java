@@ -60,4 +60,41 @@ public class MultiZipHandler {
         return zipInputs;
     }
 
+    public static void handleZips(List<String> zipPaths, String outputZipPath) throws Exception {
+
+        // Create temporary workspace directory for extraction process
+        File tempRoot = Files.createTempDirectory("zip_merge_workspace").toFile();
+
+        // Store extracted directories for merging phase
+        List<File> extractedDirs = new ArrayList<>();
+
+        // Iterate over all input ZIP files
+        for (String zipPath : zipPaths) {
+
+            // Convert string path into File object
+            File zipFile = new File(zipPath);
+
+            // Verify that ZIP file exists
+            verifyZipExists(zipFile);
+
+            // Extract base name from ZIP file
+            String baseName = getBaseName(zipFile);
+
+            // Create extraction directory for this ZIP
+            File extractDir = createExtractionDir(tempRoot, baseName);
+
+            // Extract ZIP contents into directory
+            extractZip(zipFile, extractDir);
+
+            // Store extracted directory for merging
+            extractedDirs.add(extractDir);
+        }
+
+        // Merge all extracted folders into final ZIP
+        mergeFolders(extractedDirs, outputZipPath);
+
+        // Delete temporary workspace after completion
+        deleteRecursive(tempRoot);
+    }
+
 }
