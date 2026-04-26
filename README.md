@@ -106,7 +106,6 @@ Bullet points of the requirements.
    make dependencies
    ```
 
-
 ## Usage
 
 In order to run the project, run the following command:
