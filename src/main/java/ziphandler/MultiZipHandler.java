@@ -123,4 +123,16 @@ public class MultiZipHandler {
         return name;
     }
 
+    private static File createExtractionDir(File tempRoot, String baseName) {
+
+        // Create directory object for extraction
+        File dir = new File(tempRoot, baseName);
+
+        // Create directory on filesystem
+        dir.mkdirs();
+
+        // Return created directory
+        return dir;
+    }
+
 }
