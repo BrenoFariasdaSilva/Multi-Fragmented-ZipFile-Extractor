@@ -178,4 +178,27 @@ public class MultiZipHandler {
         }
     }
 
+    private static void deleteRecursive(File file) {
+
+        // Verify if file is a directory
+        if (file.isDirectory()) {
+
+            // Retrieve directory contents
+            File[] files = file.listFiles();
+
+            // Verify directory is not empty
+            if (files != null) {
+
+                // Iterate through all children
+                for (File sub : files) {
+
+                    // Recursively delete child
+                    deleteRecursive(sub);
+                }
+            }
+        }
+
+        // Delete file or empty directory
+        file.delete();
+    }
 }
