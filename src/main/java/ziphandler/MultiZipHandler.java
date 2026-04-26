@@ -1,6 +1,7 @@
 package ziphandler;  // Define package structure for proper project organization
 
 import net.lingala.zip4j.ZipFile;  // Import ZipFile for ZIP extraction and creation
+import net.lingala.zip4j.exception.ZipException;  // Import exception handling for ZIP operations
 import net.lingala.zip4j.model.ZipParameters;  // Import ZIP configuration parameters
 
 import java.io.File;  // File handling for filesystem operations
@@ -137,30 +138,32 @@ public class MultiZipHandler {
 
     private static void extractZip(File zipFile, File extractDir) {
 
-        // Create ZipFile handler for input archive
-        ZipFile zf = new ZipFile(zipFile);
-
-        // Verify if archive is split (.z01 present)
-        if (zf.isSplitArchive()) {
-
-            // Log split archive detection
-            System.out.println("[DEBUG] Split archive detected (.z01)");
-        }
-
         try {
+
+            // Create ZipFile handler for input archive (may throw ZipException)
+            ZipFile zf = new ZipFile(zipFile);
+
+            // Verify if archive is split (.z01 present)
+            if (zf.isSplitArchive()) {
+                System.out.println("[DEBUG] Split archive detected (.z01)");
+            }
 
             // Extract ZIP contents into target directory
             zf.extractAll(extractDir.getAbsolutePath());
 
         } catch (net.lingala.zip4j.exception.ZipException e) {
 
-            // Handle Zip4j-specific extraction failures
-            throw new IllegalStateException("Extraction failed for: " + zipFile.getName(), e);
+            // Zip4j-specific failure
+            throw new IllegalStateException(
+                "ZIP processing failed: " + zipFile.getName(), e
+            );
 
         } catch (Exception e) {
 
-            // Handle any other unexpected failures
-            throw new IllegalStateException("Unexpected extraction error for: " + zipFile.getName(), e);
+            // Any other failure
+            throw new IllegalStateException(
+                "Unexpected ZIP error: " + zipFile.getName(), e
+            );
         }
     }
 
