@@ -107,4 +107,20 @@ public class MultiZipHandler {
         }
     }
 
+    private static String getBaseName(File zipFile) {
+
+        // Retrieve file name
+        String name = zipFile.getName();
+
+        // Remove .zip extension if present
+        if (name.toLowerCase().endsWith(".zip")) {
+
+            // Strip extension from name
+            name = name.substring(0, name.length() - 4);
+        }
+
+        // Return cleaned base name
+        return name;
+    }
+
 }
