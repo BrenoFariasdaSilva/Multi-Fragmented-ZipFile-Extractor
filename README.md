@@ -8,7 +8,7 @@
   
 ---
 
-Project-Description.
+Multi-Fragmented-ZipFile-Extractor is a Java command-line tool for merging multiple ZIP files (including split archives) into a single ZIP archive. It uses Zip4j for extraction and merging, creates a temporary workspace for safe processing, and outputs results as JSON for easy integration with automation scripts or other languages.
   
 ---
 
