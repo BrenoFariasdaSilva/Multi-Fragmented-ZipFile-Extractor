@@ -1,6 +1,6 @@
 <div align="center">
   
-# [Template-Project.](Repository-URL) <img src="Icon-Image-URL"  width="3%" height="3%">
+# [Multi-Fragmented-ZipFile-Extractor.](Repository-URL) <img src="Icon-Image-URL"  width="3%" height="3%">
 
 </div>
 
@@ -16,16 +16,16 @@ Project-Description.
 
 <div align="center">
 
-![GitHub Code Size in Bytes](https://img.shields.io/github/languages/code-size/BrenoFariasdaSilva/Template-Project)
-![GitHub Commits](https://img.shields.io/github/commit-activity/t/BrenoFariasdaSilva/Template-Project/main)
-![GitHub Last Commit](https://img.shields.io/github/last-commit/BrenoFariasdaSilva/Template-Project)
-![GitHub Forks](https://img.shields.io/github/forks/BrenoFariasdaSilva/Template-Project)
-![GitHub Language Count](https://img.shields.io/github/languages/count/BrenoFariasdaSilva/Template-Project)
-![GitHub License](https://img.shields.io/github/license/BrenoFariasdaSilva/Template-Project)
-![GitHub Stars](https://img.shields.io/github/stars/BrenoFariasdaSilva/Template-Project)
-![GitHub Contributors](https://img.shields.io/github/contributors/BrenoFariasdaSilva/Template-Project)
-![GitHub Created At](https://img.shields.io/github/created-at/BrenoFariasdaSilva/Template-Project)
-![wakatime](https://wakatime.com/badge/github/BrenoFariasdaSilva/Template-Project.svg)
+![GitHub Code Size in Bytes](https://img.shields.io/github/languages/code-size/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
+![GitHub Commits](https://img.shields.io/github/commit-activity/t/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor/main)
+![GitHub Last Commit](https://img.shields.io/github/last-commit/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
+![GitHub Forks](https://img.shields.io/github/forks/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
+![GitHub Language Count](https://img.shields.io/github/languages/count/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
+![GitHub License](https://img.shields.io/github/license/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
+![GitHub Stars](https://img.shields.io/github/stars/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
+![GitHub Contributors](https://img.shields.io/github/contributors/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
+![GitHub Created At](https://img.shields.io/github/created-at/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
+![wakatime](https://wakatime.com/badge/github/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor.svg)
 
 </div>
 
@@ -36,7 +36,7 @@ Project-Description.
 </div>
 
 ## Table of Contents
-- [Template-Project. ](#template-project-)
+- [Multi-Fragmented-ZipFile-Extractor. ](#Multi-Fragmented-ZipFile-Extractor-)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Requirements](#requirements)
@@ -71,8 +71,8 @@ Bullet points of the requirements.
 1. Clone the repository with the following command:
 
    ```bash
-   git clone https://github.com/BrenoFariasdaSilva/Template-Project.git
-   cd Template-Project
+   git clone https://github.com/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor.git
+   cd Multi-Fragmented-ZipFile-Extractor
    ```
 
 ## Installation:
@@ -112,7 +112,7 @@ Bullet points of the requirements.
 
 ### Dataset - Optional
 
-1. Download the dataset from [WEBSITE-HERE]() and place it in this project directory `(/Template-Project)` and run the following command:
+1. Download the dataset from [WEBSITE-HERE]() and place it in this project directory `(/Multi-Fragmented-ZipFile-Extractor)` and run the following command:
 
    ```bash
    make dataset
