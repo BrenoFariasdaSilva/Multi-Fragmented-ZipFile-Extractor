@@ -42,8 +42,9 @@ Multi-Fragmented-ZipFile-Extractor is a Java command-line tool for merging multi
   - [Requirements](#requirements)
   - [Setup](#setup)
     - [Clone the repository](#clone-the-repository)
-  - [Installation:](#installation)
-    - [Windows](#windows)
+  - [Installation](#installation)
+    - [Windows (Chocolatey)](#windows-chocolatey)
+    - [Windows (Manual Alternative)](#windows-manual-alternative)
     - [Linux (Debian/Ubuntu)](#linux-debianubuntu)
     - [macOS](#macos)
   - [Run Program](#run-program)
@@ -78,24 +79,58 @@ Multi-Fragmented-ZipFile-Extractor is a command-line Java application that merge
    cd Multi-Fragmented-ZipFile-Extractor
    ```
 
-## Installation:
+## Installation
 
-Installation involves setting up Java and Maven, which are required to build and run the program. Follow the instructions for your operating system below.
+Installation involves setting up Java and Maven, which are required to
+build and run the program. Zip4j is handled automatically via Maven
+dependencies.
 
-### Windows
+### Windows (Chocolatey)
 
-1. Download and install [Java JDK 17+](https://adoptopenjdk.net/) and [Maven](https://maven.apache.org/download.cgi).
-2. Add both `java` and `mvn` to your system PATH.
-3. Open Command Prompt and verify installation:
-   ```cmd
-   java -version
-   javac -version
-   mvn -v
-   ```
+1.  Install Chocolatey (if not installed) from:
+    https://chocolatey.org/install
+
+2.  Install Java JDK and Maven:
+
+``` powershell
+choco install openjdk17 -y
+choco install maven -y
+```
+
+3.  Verify installation:
+
+``` cmd
+java -version
+javac -version
+mvn -v
+```
+
+4.  Ensure environment variables are refreshed:
+
+``` powershell
+refreshenv
+```
+
+### Windows (Manual Alternative)
+
+1.  Download and install:
+    -   Java JDK 17+ (or newer)
+    -   Maven
+2.  Add to PATH:
+    -   JAVA_HOME pointing to JDK folder
+    -   MAVEN_HOME pointing to Maven folder
+    -   Add %JAVA_HOME%`\bin `{=tex}and %MAVEN_HOME%`\bin `{=tex}to PATH
+3.  Verify:
+
+``` cmd
+java -version
+javac -version
+mvn -v
+```
 
 ### Linux (Debian/Ubuntu)
 
-```bash
+``` bash
 sudo apt update
 sudo apt install openjdk-17-jdk maven -y
 java -version
@@ -105,15 +140,17 @@ mvn -v
 
 ### macOS
 
-```bash
+``` bash
 brew install openjdk@17 maven
-export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
+echo 'export PATH="/usr/local/opt/openjdk@17/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
 java -version
 javac -version
 mvn -v
 ```
 
-*No additional dependencies are required. Zip4j is managed by Maven.*
+Zip4j dependency is managed automatically by Maven during build (mvn
+clean package).
 
 ## Run Program
 
