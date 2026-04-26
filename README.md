@@ -1,6 +1,6 @@
 <div align="center">
   
-# [Multi-Fragmented-ZipFile-Extractor.](Repository-URL) <img src="Icon-Image-URL"  width="3%" height="3%">
+# [Multi-Fragmented-ZipFile-Extractor.](https://github.com/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor) <img src="Icon-Image-URL"  width="3%" height="3%">
 
 </div>
 
@@ -36,7 +36,7 @@ Project-Description.
 </div>
 
 ## Table of Contents
-- [Multi-Fragmented-ZipFile-Extractor. ](#Multi-Fragmented-ZipFile-Extractor-)
+- [Multi-Fragmented-ZipFile-Extractor. ](#multi-fragmented-zipfile-extractor-)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Requirements](#requirements)
