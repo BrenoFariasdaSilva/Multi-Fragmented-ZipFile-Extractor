@@ -113,6 +113,42 @@ mvn -v
 
 *No additional dependencies are required. Zip4j is managed by Maven.*
 
+## Run Program
+
+To run the Java program after building the JAR with Maven, use the following command:
+
+```bash
+java -jar target/zip-extractor-1.0.jar <output.zip> <input1.zip> <input2.zip> ...
+```
+
+- `<output.zip>`: Path to the merged output ZIP file to create.
+- `<input1.zip> <input2.zip> ...`: List of input ZIP files to merge. At least one input ZIP is required.
+
+The program prints a JSON object to stdout on completion:
+
+- On success:
+  ```json
+  {"status":"success","output":"<output.zip>"}
+  ```
+- On error:
+  ```json
+  {"status":"error","message":"<error message>"}
+  ```
+
+This output is suitable for integration with Python or other automation tools via subprocess parsing.
+
+### Dependencies
+
+This project uses Maven for dependency management. The only runtime dependency is [zip4j](https://github.com/srikanth-lingala/zip4j), which is automatically handled by Maven.
+
+To build the project and resolve dependencies, run:
+
+```bash
+mvn clean package
+```
+
+This will produce an executable fat JAR at `target/zip-extractor-1.0.jar`.
+
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. If you have suggestions for improving the code, your insights will be highly welcome.
