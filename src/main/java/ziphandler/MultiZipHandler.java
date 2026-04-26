@@ -159,4 +159,23 @@ public class MultiZipHandler {
         }
     }
 
+    private static void mergeFolders(List<File> extractedDirs, String outputZipPath) throws Exception {
+
+        // Create final output ZIP handler
+        ZipFile outputZip = new ZipFile(outputZipPath);
+
+        // Create default ZIP parameters
+        ZipParameters params = new ZipParameters();
+
+        // Iterate over extracted directories
+        for (File dir : extractedDirs) {
+
+            // Log directory being added
+            System.out.println("[DEBUG] Adding to final ZIP: " + dir.getName());
+
+            // Add folder content into final ZIP
+            outputZip.addFolder(dir, params);
+        }
+    }
+
 }
