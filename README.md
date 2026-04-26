@@ -149,6 +149,22 @@ mvn clean package
 
 This will produce an executable fat JAR at `target/zip-extractor-1.0.jar`.
 
+## Usage
+
+The program merges multiple ZIP files into a single output ZIP. It extracts each input ZIP into a temporary workspace, then adds all extracted contents into the output ZIP using Zip4j. Temporary files are cleaned up automatically.
+
+**Example:**
+
+```bash
+java -jar target/zip-extractor-1.0.jar merged.zip part1.zip part2.zip
+```
+
+This will create `merged.zip` containing the merged contents of `part1.zip` and `part2.zip`.
+
+**Integration:**
+
+The program is designed for automation and can be called from Python or other languages. It prints a JSON object to stdout indicating success or error, which can be parsed for workflow integration.
+
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. If you have suggestions for improving the code, your insights will be highly welcome.
