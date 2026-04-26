@@ -12,17 +12,36 @@ public class MultiZipHandler {
 
     public static void main(String[] args) {
 
-        // Entry point placeholder for CLI execution
-
-        if (args == null || args.length == 0) {
-
-            // Basic argument verification
-            System.out.println("{\"status\":\"error\",\"message\":\"No arguments provided\"}");
+        // Verify minimum required arguments (output ZIP + at least one input ZIP)
+        if (args.length < 2) {
+            System.out.println("{\"status\":\"error\",\"message\":\"Invalid arguments\"}");
             System.exit(1);
         }
 
-        // Placeholder output (no real logic implemented)
-        System.out.println("{\"status\":\"success\",\"message\":\"boilerplate initialized\"}");
-        System.exit(0);
+        // Define output ZIP path from first argument
+        String outputZip = args[0];
+
+        // Collect all input ZIP files from remaining arguments
+        List<String> zipInputs = collectInputZips(args);
+
+        try {
+
+            // Execute extraction + merge pipeline
+            handleZips(zipInputs, outputZip);
+
+            // Output success response for Python integration
+            System.out.println("{\"status\":\"success\",\"output\":\"" + outputZip + "\"}");
+            System.exit(0);
+
+        } catch (Exception e) {
+
+            // Normalize error message for JSON safety
+            String msg = e.getMessage() != null ? e.getMessage().replace("\"", "'") : "unknown error";
+
+            // Output error response for Python integration
+            System.out.println("{\"status\":\"error\",\"message\":\"" + msg + "\"}");
+            System.exit(1);
+        }
     }
+
 }
