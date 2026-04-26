@@ -135,4 +135,28 @@ public class MultiZipHandler {
         return dir;
     }
 
+    private static void extractZip(File zipFile, File extractDir) {
+
+        // Create ZipFile handler for input archive
+        ZipFile zf = new ZipFile(zipFile);
+
+        // Verify if archive is split (.z01 present)
+        if (zf.isSplitArchive()) {
+
+            // Log split archive detection
+            System.out.println("[DEBUG] Split archive detected (.z01)");
+        }
+
+        try {
+
+            // Extract ZIP contents into target directory
+            zf.extractAll(extractDir.getAbsolutePath());
+
+        } catch (Exception e) {
+
+            // Fail extraction with contextual message
+            throw new IllegalStateException("Extraction failed for: " + zipFile.getName(), e);
+        }
+    }
+
 }
