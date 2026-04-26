@@ -16,14 +16,16 @@ Multi-Fragmented-ZipFile-Extractor is a Java command-line tool for merging multi
 
 <div align="center">
 
+![Java 25](https://img.shields.io/badge/Java-25-blue?logo=openjdk)
+![Maven Build](https://img.shields.io/badge/Maven-Build-orange?logo=apachemaven)
+![GitHub License](https://img.shields.io/github/license/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
 ![GitHub Code Size in Bytes](https://img.shields.io/github/languages/code-size/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
+![GitHub Language Count](https://img.shields.io/github/languages/count/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
+![GitHub Stars](https://img.shields.io/github/stars/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
+![GitHub Forks](https://img.shields.io/github/forks/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
+![GitHub Contributors](https://img.shields.io/github/contributors/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
 ![GitHub Commits](https://img.shields.io/github/commit-activity/t/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor/main)
 ![GitHub Last Commit](https://img.shields.io/github/last-commit/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
-![GitHub Forks](https://img.shields.io/github/forks/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
-![GitHub Language Count](https://img.shields.io/github/languages/count/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
-![GitHub License](https://img.shields.io/github/license/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
-![GitHub Stars](https://img.shields.io/github/stars/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
-![GitHub Contributors](https://img.shields.io/github/contributors/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
 ![GitHub Created At](https://img.shields.io/github/created-at/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
 ![wakatime](https://wakatime.com/badge/github/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor.svg)
 
