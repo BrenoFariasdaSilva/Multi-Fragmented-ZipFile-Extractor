@@ -51,8 +51,6 @@ Multi-Fragmented-ZipFile-Extractor is a Java command-line tool for merging multi
     - [Linux (Debian/Ubuntu)](#linux-debianubuntu)
     - [macOS](#macos)
   - [Run Program](#run-program)
-    - [Supported log levels](#supported-log-levels)
-    - [Examples:](#examples)
     - [Dependencies](#dependencies)
   - [Maven Build Output (mvn clean package)](#maven-build-output-mvn-clean-package)
   - [Usage](#usage)
@@ -166,18 +164,7 @@ To run the Java program after building the JAR with Maven, use the following com
 java -jar target/zip-extractor-1.0.jar <output.zip> <input1.zip> <input2.zip> ...
 ```
 
-Optional: Log level control
-
-You can control verbosity using the --log flag:
-
-### Supported log levels
-
-- `ERROR` → Only critical failures
-- `WARN` → Errors + warnings (minimal noise)
-- `INFO` → Default mode (recommended, balanced output)
-- `DEBUG` → Full verbose output (development only)
-
-### Examples:
+You can control verbosity using the `--log` flag:
 
 ```bash
 java -jar target/zip-extractor-1.0.jar --log=INFO  output.zip input1.zip input2.zip
@@ -186,11 +173,17 @@ java -jar target/zip-extractor-1.0.jar --log=ERROR output.zip input1.zip input2.
 java -jar target/zip-extractor-1.0.jar --log=DEBUG output.zip input1.zip input2.zip
 ```
 
-Parameters
-<output.zip> → Path of final merged ZIP
-<input.zip> → One or more input ZIP files
+**Supported log levels:**
+- `ERROR` → Only critical failures
+- `WARN` → Errors + warnings (minimal noise)
+- `INFO` → Default mode (recommended, balanced output)
+- `DEBUG` → Full verbose output (development only)
 
-Output format
+**Parameters:**
+- `<output.zip>` → Path of final merged ZIP
+- `<input.zip>` → One or more input ZIP files
+
+**Output format:**
 
 On success:
 
@@ -264,27 +257,13 @@ Maven creates several files and folders in the `target/` directory:
 
 The program merges multiple ZIP files into a single output ZIP. It extracts each input ZIP into a temporary workspace, then adds all extracted contents into the output ZIP using Zip4j. Temporary files are cleaned up automatically.
 
-Logging behavior
-
-The tool outputs runtime logs depending on the selected log level:
-
-INFO → Only key steps (default production mode)
-WARN → Warnings + errors
-ERROR → Only failures
-DEBUG → Full internal pipeline tracing (split detection, merge steps, etc.)
-
-This allows the tool to be used both in production automation pipelines and debugging environments without modifying code.
-
 **Example:**
-
 ```bash
 java -jar target/zip-extractor-1.0.jar merged.zip part1.zip part2.zip
 ```
-
 This will create `merged.zip` containing the merged contents of `part1.zip` and `part2.zip`.
 
 **Integration:**
-
 The program is designed for automation and can be called from Python or other languages. It prints a JSON object to stdout indicating success or error, which can be parsed for workflow integration.
 
 ## Results
