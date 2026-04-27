@@ -225,6 +225,17 @@ Only zip-extractor-1.0.jar should be used for execution. Other artifacts in targ
 
 The program merges multiple ZIP files into a single output ZIP. It extracts each input ZIP into a temporary workspace, then adds all extracted contents into the output ZIP using Zip4j. Temporary files are cleaned up automatically.
 
+Logging behavior
+
+The tool outputs runtime logs depending on the selected log level:
+
+INFO → Only key steps (default production mode)
+WARN → Warnings + errors
+ERROR → Only failures
+DEBUG → Full internal pipeline tracing (split detection, merge steps, etc.)
+
+This allows the tool to be used both in production automation pipelines and debugging environments without modifying code.
+
 **Example:**
 
 ```bash
