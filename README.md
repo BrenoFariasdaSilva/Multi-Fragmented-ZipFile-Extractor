@@ -167,17 +167,17 @@ java -jar target/zip-extractor-1.0.jar <output.zip> <input1.zip> <input2.zip> ..
 You can control verbosity using the `--log` flag:
 
 ```bash
+java -jar target/zip-extractor-1.0.jar --log=DEBUG output.zip input1.zip input2.zip
+java -jar target/zip-extractor-1.0.jar --log=ERROR output.zip input1.zip input2.zip
 java -jar target/zip-extractor-1.0.jar --log=INFO  output.zip input1.zip input2.zip
 java -jar target/zip-extractor-1.0.jar --log=WARN  output.zip input1.zip input2.zip
-java -jar target/zip-extractor-1.0.jar --log=ERROR output.zip input1.zip input2.zip
-java -jar target/zip-extractor-1.0.jar --log=DEBUG output.zip input1.zip input2.zip
 ```
 
 **Supported log levels:**
-- `ERROR` → Only critical failures
-- `WARN` → Errors + warnings (minimal noise)
-- `INFO` → Default mode (recommended, balanced output)
 - `DEBUG` → Full verbose output (development only)
+- `ERROR` → Only critical failures
+- `INFO` → Default mode (recommended, balanced output)
+- `WARN` → Errors + warnings (minimal noise)
 
 **Parameters:**
 - `<output.zip>` → Path of final merged ZIP
