@@ -11,6 +11,34 @@ import java.util.List;  // List interface
 
 public class MultiZipHandler {
 
+    // =========================
+    // LOG LEVEL CONTROL
+    // =========================
+    private static String LOG_LEVEL = "INFO";  // Default log level (INFO only important logs)
+
+    private static boolean isDebug() { return LOG_LEVEL.equals("DEBUG"); }  // Verify debug mode
+    private static boolean isInfo() { return LOG_LEVEL.equals("INFO") || isDebug(); }  // Verify info mode
+    private static boolean isWarn() { return !LOG_LEVEL.equals("ERROR"); }  // Verify warning mode
+
+    private static void log(String level, String message) {
+
+        if (level.equals("ERROR")) {  // Verify error-level logging
+            System.out.println("[ERROR] " + message);  // Print error message
+        }
+
+        else if (level.equals("WARN") && isWarn()) {  // Verify warning-level logging
+            System.out.println("[WARNING] " + message);  // Print warning message
+        }
+
+        else if (level.equals("INFO") && isInfo()) {  // Verify info-level logging
+            System.out.println("[INFO] " + message);  // Print info message
+        }
+
+        else if (level.equals("DEBUG") && isDebug()) {  // Verify debug-level logging
+            System.out.println("[DEBUG] " + message);  // Print debug message
+        }
+    }
+
     public static void main(String[] args) {
 
         // Verify minimum required arguments (output ZIP + at least one input ZIP)
@@ -19,11 +47,21 @@ public class MultiZipHandler {
             System.exit(1);
         }
 
+        // =========================
+        // OPTIONAL LOG LEVEL ARG
+        // =========================
+        int argOffset = 0;  // Initialize argument offset
+
+        if (args.length > 2 && args[0].startsWith("--log=")) {  // Verify optional log level argument
+            LOG_LEVEL = args[0].substring(6).toUpperCase();  // Extract log level value
+            argOffset = 1;  // Shift argument index
+        }
+
         // Define output ZIP path from first argument
-        String outputZip = args[0];
+        String outputZip = args[argOffset];
 
         // Collect all input ZIP files from remaining arguments
-        List<String> zipInputs = collectInputZips(args);
+        List<String> zipInputs = collectInputZips(args, argOffset);
 
         try {
 
@@ -45,13 +83,13 @@ public class MultiZipHandler {
         }
     }
 
-    private static List<String> collectInputZips(String[] args) {
+    private static List<String> collectInputZips(String[] args, int offset) {
 
         // Create list for storing input ZIP paths
         List<String> zipInputs = new ArrayList<>();
 
-        // Iterate over arguments starting from index 1
-        for (int i = 1; i < args.length; i++) {
+        // Iterate over arguments starting from index 1 (or offset)
+        for (int i = offset + 1; i < args.length; i++) {
 
             // Add each ZIP path to the list
             zipInputs.add(args[i]);
@@ -145,7 +183,7 @@ public class MultiZipHandler {
 
             // Verify if archive is split (.z01 present)
             if (zf.isSplitArchive()) {
-                System.out.println("[DEBUG] Split archive detected (.z01)");
+                log("DEBUG", "Split archive detected (.z01)");  // Controlled debug logging
             }
 
             // Extract ZIP contents into target directory
@@ -179,7 +217,7 @@ public class MultiZipHandler {
         for (File dir : extractedDirs) {
 
             // Log directory being added
-            System.out.println("[DEBUG] Adding to final ZIP: " + dir.getName());
+            log("DEBUG", "Adding to final ZIP: " + dir.getName());  // Controlled logging
 
             // Add folder content into final ZIP
             outputZip.addFolder(dir, params);
