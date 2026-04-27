@@ -51,6 +51,9 @@ Multi-Fragmented-ZipFile-Extractor is a Java command-line tool for merging multi
     - [Linux (Debian/Ubuntu)](#linux-debianubuntu)
     - [macOS](#macos)
   - [Run Program](#run-program)
+    - [Log Levels (Java Runtime Logging Control)](#log-levels-java-runtime-logging-control)
+      - [Supported log levels](#supported-log-levels)
+      - [Default behavior](#default-behavior)
     - [Dependencies](#dependencies)
   - [Usage](#usage)
   - [Results](#results)
@@ -178,6 +181,22 @@ The program prints a JSON object to stdout on completion:
   ```
 
 This output is suitable for integration with Python or other automation tools via subprocess parsing.
+
+### Log Levels (Java Runtime Logging Control)
+
+The JAR now supports controlled logging verbosity through an optional `--log` argument.
+
+#### Supported log levels
+
+- `ERROR` → Only critical failures
+- `WARN` → Errors + warnings (minimal noise)
+- `INFO` → Default mode (recommended, balanced output)
+- `DEBUG` → Full verbose output (development only)
+
+#### Default behavior
+
+If no log level is provided, the system runs in:
+- `INFO` mode by default, which provides a good balance of useful information without overwhelming the user with debug details.
 
 ### Dependencies
 
