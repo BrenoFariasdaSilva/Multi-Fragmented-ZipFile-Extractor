@@ -10,7 +10,39 @@ import java.util.ArrayList;  // Dynamic list implementation
 import java.util.List;  // List interface
 
 public class MultiZipHandler {
-    
+    /**
+     * Normalize a file path to Unix-style (forward slashes).
+     * - If path is null, returns empty string
+     * - Replaces all "\\" with "/"
+     * - Preserves drive letters (e.g., D:/folder/file.zip)
+     * - Does not break already-valid Unix paths
+     * - Avoids double slashes (except protocol cases)
+     */
+    private static String normalizePathToUnix(String path) {
+        // Return empty string if input is null or empty
+        if (path == null || path.isEmpty()) {
+            return "";
+        }
+
+        // Replace backslashes with forward slashes
+        String normalized = path.replace("\\", "/");
+
+        // Remove duplicate slashes except after protocol (e.g., file://, http://)
+        int protocolIdx = normalized.indexOf("://");
+        String prefix = "";
+        String rest = normalized;
+
+        if (protocolIdx != -1) {
+            prefix = normalized.substring(0, protocolIdx + 3);
+            rest = normalized.substring(protocolIdx + 3);
+        }
+
+        // Replace multiple slashes with single slash in the rest
+        rest = rest.replaceAll("/{2,}", "/");
+
+        return prefix + rest;
+    }
+
     // =========================
     // LOG LEVEL CONTROL
     // =========================
@@ -70,7 +102,7 @@ public class MultiZipHandler {
             handleZips(zipInputs, outputZip);
 
             // Output success response for Python integration
-            System.out.println("{\"status\":\"success\",\"output\":\"" + outputZip + "\"}");
+            System.out.println("{\"status\":\"success\",\"output\":\"" + normalizePathToUnix(outputZip) + "\"}");
             System.exit(0);
 
         } catch (Exception e) {
