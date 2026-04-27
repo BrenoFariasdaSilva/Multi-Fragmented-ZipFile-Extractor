@@ -10,32 +10,33 @@ import java.util.ArrayList;  // Dynamic list implementation
 import java.util.List;  // List interface
 
 public class MultiZipHandler {
-
+    
     // =========================
     // LOG LEVEL CONTROL
     // =========================
     private static String LOG_LEVEL = "INFO";  // Default log level (INFO only important logs)
 
     private static boolean isDebug() { return LOG_LEVEL.equals("DEBUG"); }  // Verify debug mode
+    private static boolean isError() { return LOG_LEVEL.equals("ERROR"); }  // Verify error mode
     private static boolean isInfo() { return LOG_LEVEL.equals("INFO") || isDebug(); }  // Verify info mode
-    private static boolean isWarn() { return !LOG_LEVEL.equals("ERROR"); }  // Verify warning mode
+    private static boolean isWarn() { return LOG_LEVEL.equals("WARN") || isInfo(); }  // Verify warning mode
 
     private static void log(String level, String message) {
 
-        if (level.equals("ERROR")) {  // Verify error-level logging
-            System.out.println("[ERROR] " + message);  // Print error message
+        if (level.equals("DEBUG") && isDebug()) {  // Verify debug-level logging
+            System.out.println("[DEBUG] " + message);  // Print debug message
         }
 
-        else if (level.equals("WARN") && isWarn()) {  // Verify warning-level logging
-            System.out.println("[WARNING] " + message);  // Print warning message
+        else if (level.equals("ERROR")) {  // Verify error-level logging
+            System.out.println("[ERROR] " + message);  // Print error message
         }
 
         else if (level.equals("INFO") && isInfo()) {  // Verify info-level logging
             System.out.println("[INFO] " + message);  // Print info message
         }
 
-        else if (level.equals("DEBUG") && isDebug()) {  // Verify debug-level logging
-            System.out.println("[DEBUG] " + message);  // Print debug message
+        else if (level.equals("WARN") && isWarn()) {  // Verify warning-level logging
+            System.out.println("[WARNING] " + message);  // Print warning message
         }
     }
 
