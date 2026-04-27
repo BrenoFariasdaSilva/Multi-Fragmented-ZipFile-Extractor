@@ -80,10 +80,10 @@ Multi-Fragmented-ZipFile-Extractor is a command-line Java application that merge
 
 1. Clone the repository with the following command:
 
-   ```bash
-   git clone https://github.com/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor.git
-   cd Multi-Fragmented-ZipFile-Extractor
-   ```
+    ```bash
+    git clone https://github.com/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor.git
+    cd Multi-Fragmented-ZipFile-Extractor
+    ```
 
 ## Installation
 
