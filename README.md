@@ -98,24 +98,24 @@ dependencies.
 
 2.  Install Java JDK and Maven:
 
-``` powershell
-choco install openjdk17 -y
-choco install maven -y
-```
+  ```powershell
+  choco install openjdk17 -y
+  choco install maven -y
+  ```
 
 3.  Verify installation:
 
-``` cmd
-java -version
-javac -version
-mvn -v
-```
+  ```cmd
+  java -version
+  javac -version
+  mvn -v
+  ```
 
 4.  Ensure environment variables are refreshed:
 
-``` powershell
-refreshenv
-```
+  ```powershell
+  refreshenv
+  ```
 
 ### Windows (Manual Alternative)
 
@@ -128,32 +128,32 @@ refreshenv
     -   Add %JAVA_HOME%`\bin `{=tex}and %MAVEN_HOME%`\bin `{=tex}to PATH
 3.  Verify:
 
-``` cmd
-java -version
-javac -version
-mvn -v
-```
+  ```cmd
+  java -version
+  javac -version
+  mvn -v
+  ```
 
 ### Linux (Debian/Ubuntu)
 
-``` bash
-sudo apt update
-sudo apt install openjdk-17-jdk maven -y
-java -version
-javac -version
-mvn -v
-```
+  ```bash
+  sudo apt update
+  sudo apt install openjdk-17-jdk maven -y
+  java -version
+  javac -version
+  mvn -v
+  ```
 
 ### macOS
 
-``` bash
-brew install openjdk@17 maven
-echo 'export PATH="/usr/local/opt/openjdk@17/bin:$PATH"' >> ~/.zshrc
-source ~/.zshrc
-java -version
-javac -version
-mvn -v
-```
+  ```bash
+  brew install openjdk@17 maven
+  echo 'export PATH="/usr/local/opt/openjdk@17/bin:$PATH"' >> ~/.zshrc
+  source ~/.zshrc
+  java -version
+  javac -version
+  mvn -v
+  ```
 
 Zip4j dependency is managed automatically by Maven during build (mvn
 clean package).
