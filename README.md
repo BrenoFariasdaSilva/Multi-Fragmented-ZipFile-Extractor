@@ -54,6 +54,7 @@ Multi-Fragmented-ZipFile-Extractor is a Java command-line tool for merging multi
     - [Supported log levels](#supported-log-levels)
     - [Examples:](#examples)
     - [Dependencies](#dependencies)
+  - [Maven Build Output (mvn clean package)](#maven-build-output-mvn-clean-package)
   - [Usage](#usage)
   - [Results](#results)
   - [Contributing](#contributing)
@@ -220,6 +221,44 @@ This will produce an executable fat JAR at `target/zip-extractor-1.0.jar`.
 Build output note
 
 Only zip-extractor-1.0.jar should be used for execution. Other artifacts in target/ are intermediate Maven outputs and not intended for runtime use.
+
+## Maven Build Output (mvn clean package)
+
+mvn clean package
+generated-sources/ → Auto-generated source files (if any)
+maven-archiver/ → Build metadata
+maven-status/ → Compilation tracking data
+dependencies bundled (if configured as fat JAR)
+
+When you run:
+
+```bash
+mvn clean package
+```
+
+Maven creates several files and folders in the `target/` directory:
+
+- `classes/` — Compiled `.class` files
+- `generated-sources/` — Auto-generated source files (if any)
+- `maven-archiver/` — Build metadata
+- `maven-status/` — Compilation tracking data
+- `zip-extractor-1.0.jar` — **Final executable JAR** (use this to run the program)
+- `original-zip-extractor-1.0.jar` — Raw Maven artifact (not for direct execution)
+
+**About the JAR files:**
+
+- `zip-extractor-1.0.jar`: This is the executable JAR. It contains all compiled classes and, if configured as a fat JAR, all dependencies bundled. Use this file to run the program:
+  ```bash
+  java -jar target/zip-extractor-1.0.jar
+  ```
+- `original-zip-extractor-1.0.jar`: This is an intermediate artifact produced by Maven before dependency shading. It may not include all dependencies and is not intended for direct use.
+
+**Summary:**
+
+| File                           | Purpose              | Usage                 |
+| ------------------------------ | -------------------- | --------------------- |
+| zip-extractor-1.0.jar          | Final executable JAR | Runtime execution     |
+| original-zip-extractor-1.0.jar | Raw Maven artifact   | Debug/build reference |
 
 ## Usage
 
