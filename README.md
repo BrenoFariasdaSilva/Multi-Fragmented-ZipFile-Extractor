@@ -205,7 +205,6 @@ On failure:
 
 This output is suitable for integration with Python or other automation tools via subprocess parsing.
 
-
 ### Dependencies
 
 This project uses Maven for dependency management. The only runtime dependency is [zip4j](https://github.com/srikanth-lingala/zip4j), which is automatically handled by Maven.
@@ -217,6 +216,10 @@ mvn clean package
 ```
 
 This will produce an executable fat JAR at `target/zip-extractor-1.0.jar`.
+
+Build output note
+
+Only zip-extractor-1.0.jar should be used for execution. Other artifacts in target/ are intermediate Maven outputs and not intended for runtime use.
 
 ## Usage
 
