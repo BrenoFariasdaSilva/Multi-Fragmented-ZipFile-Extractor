@@ -9,19 +9,55 @@ import java.nio.file.Files;  // Temporary directory creation utilities
 import java.util.ArrayList;  // Dynamic list implementation
 import java.util.List;  // List interface
 
+/**
+ * MultiZipHandler
+ *
+ * Core automation class responsible for:
+ * - Processing ZIP archives (including split archives)
+ * - Extracting contents into temporary workspace
+ * - Merging extracted data into final ZIP output
+ * - Handling filesystem cleanup
+ * - Providing structured logging and CLI integration
+ *
+ * Designed for cross-platform execution (Windows, Linux, macOS).
+ */
 public class MultiZipHandler {
 
     // =========================
     // LOG LEVEL CONTROL
     // =========================
 
+    /**
+     * Global log level configuration used to control verbosity of execution logs.
+     */
     private static String LOG_LEVEL = "INFO";  // Default log level (INFO only important logs)
 
+    /**
+     * Returns true when DEBUG mode is enabled.
+     */
     private static boolean isDebug() { return LOG_LEVEL.equals("DEBUG"); }  // Verify debug mode
+
+    /**
+     * Returns true when ERROR mode is active.
+     */
     private static boolean isError() { return LOG_LEVEL.equals("ERROR"); }  // Verify error mode
+
+    /**
+     * Returns true when INFO-level logging is allowed.
+     */
     private static boolean isInfo() { return LOG_LEVEL.equals("INFO") || isDebug(); }  // Verify info mode
+
+    /**
+     * Returns true when WARN-level logging is allowed.
+     */
     private static boolean isWarn() { return LOG_LEVEL.equals("WARN") || isInfo(); }  // Verify warning mode
 
+    /**
+     * Centralized logging utility supporting multiple log levels.
+     *
+     * @param level   Log level (DEBUG, INFO, WARN, ERROR)
+     * @param message Log message content
+     */
     private static void log(String level, String message) {
 
         if (level.equals("DEBUG") && isDebug()) {  // Verify debug-level logging
@@ -47,11 +83,15 @@ public class MultiZipHandler {
 
     /**
      * Normalize a file path to Unix-style (forward slashes).
-     * - If path is null, returns empty string
-     * - Replaces all "\\" with "/"
-     * - Preserves drive letters (e.g., D:/folder/file.zip)
-     * - Does not break already-valid Unix paths
-     * - Avoids double slashes (except protocol cases)
+     *
+     * Behavior:
+     * - Converts Windows backslashes to forward slashes
+     * - Preserves protocol prefixes (http://, file://)
+     * - Avoids duplicate slashes
+     * - Safe for cross-platform output formatting
+     *
+     * @param path Input file path
+     * @return Normalized Unix-style path
      */
     private static String normalizePathToUnix(String path) {
 
@@ -83,6 +123,17 @@ public class MultiZipHandler {
     // MAIN ENTRY
     // =========================
 
+    /**
+     * Application entry point.
+     *
+     * Responsibilities:
+     * - Parse CLI arguments
+     * - Configure logging level
+     * - Execute ZIP processing pipeline
+     * - Output structured JSON result
+     *
+     * @param args CLI arguments
+     */
     public static void main(String[] args) {
 
         // Verify minimum required arguments (output ZIP + at least one input ZIP)
@@ -131,6 +182,13 @@ public class MultiZipHandler {
     // CORE PIPELINE
     // =========================
 
+    /**
+     * Collects all input ZIP files from CLI arguments.
+     *
+     * @param args   CLI arguments
+     * @param offset Argument offset index
+     * @return List of ZIP file paths
+     */
     private static List<String> collectInputZips(String[] args, int offset) {
 
         // Create list for storing input ZIP paths
@@ -147,6 +205,16 @@ public class MultiZipHandler {
         return zipInputs;
     }
 
+    /**
+     * Main ZIP processing pipeline:
+     * - Validates ZIP files
+     * - Extracts contents
+     * - Merges extracted directories
+     * - Cleans temporary workspace
+     *
+     * @param zipPaths      Input ZIP file paths
+     * @param outputZipPath Output ZIP path
+     */
     public static void handleZips(List<String> zipPaths, String outputZipPath) throws Exception {
 
         // Create temporary workspace directory for extraction process
@@ -188,6 +256,11 @@ public class MultiZipHandler {
     // FILE OPERATIONS
     // =========================
 
+    /**
+     * Verifies that a ZIP file exists on disk.
+     *
+     * @param zipFile ZIP file reference
+     */
     private static void verifyZipExists(File zipFile) {
 
         // Verify file existence
@@ -198,6 +271,12 @@ public class MultiZipHandler {
         }
     }
 
+    /**
+     * Extracts base filename without .zip extension.
+     *
+     * @param zipFile ZIP file reference
+     * @return Base filename
+     */
     private static String getBaseName(File zipFile) {
 
         // Retrieve file name
@@ -214,6 +293,13 @@ public class MultiZipHandler {
         return name;
     }
 
+    /**
+     * Creates extraction directory for a ZIP archive.
+     *
+     * @param tempRoot Temporary root directory
+     * @param baseName Base filename
+     * @return Created directory
+     */
     private static File createExtractionDir(File tempRoot, String baseName) {
 
         // Create directory object for extraction
@@ -226,6 +312,12 @@ public class MultiZipHandler {
         return dir;
     }
 
+    /**
+     * Extracts ZIP archive into target directory.
+     *
+     * @param zipFile    Input ZIP file
+     * @param extractDir Output directory
+     */
     private static void extractZip(File zipFile, File extractDir) {
 
         try {
@@ -257,6 +349,12 @@ public class MultiZipHandler {
         }
     }
 
+    /**
+     * Merges extracted folders into final ZIP output.
+     *
+     * @param extractedDirs List of extracted directories
+     * @param outputZipPath Output ZIP file path
+     */
     private static void mergeFolders(List<File> extractedDirs, String outputZipPath) throws Exception {
 
         // Create final output ZIP handler
@@ -276,6 +374,11 @@ public class MultiZipHandler {
         }
     }
 
+    /**
+     * Recursively deletes files and directories.
+     *
+     * @param file Target file or directory
+     */
     private static void deleteRecursive(File file) {
 
         // Verify if file is a directory
