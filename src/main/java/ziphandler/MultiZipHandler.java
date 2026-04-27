@@ -10,42 +10,11 @@ import java.util.ArrayList;  // Dynamic list implementation
 import java.util.List;  // List interface
 
 public class MultiZipHandler {
-    /**
-     * Normalize a file path to Unix-style (forward slashes).
-     * - If path is null, returns empty string
-     * - Replaces all "\\" with "/"
-     * - Preserves drive letters (e.g., D:/folder/file.zip)
-     * - Does not break already-valid Unix paths
-     * - Avoids double slashes (except protocol cases)
-     */
-    private static String normalizePathToUnix(String path) {
-        // Return empty string if input is null or empty
-        if (path == null || path.isEmpty()) {
-            return "";
-        }
-
-        // Replace backslashes with forward slashes
-        String normalized = path.replace("\\", "/");
-
-        // Remove duplicate slashes except after protocol (e.g., file://, http://)
-        int protocolIdx = normalized.indexOf("://");
-        String prefix = "";
-        String rest = normalized;
-
-        if (protocolIdx != -1) {
-            prefix = normalized.substring(0, protocolIdx + 3);
-            rest = normalized.substring(protocolIdx + 3);
-        }
-
-        // Replace multiple slashes with single slash in the rest
-        rest = rest.replaceAll("/{2,}", "/");
-
-        return prefix + rest;
-    }
 
     // =========================
     // LOG LEVEL CONTROL
     // =========================
+
     private static String LOG_LEVEL = "INFO";  // Default log level (INFO only important logs)
 
     private static boolean isDebug() { return LOG_LEVEL.equals("DEBUG"); }  // Verify debug mode
@@ -71,6 +40,48 @@ public class MultiZipHandler {
             System.out.println("[WARNING] " + message);  // Print warning message
         }
     }
+
+    // =========================
+    // PATH NORMALIZATION UTILITY
+    // =========================
+
+    /**
+     * Normalize a file path to Unix-style (forward slashes).
+     * - If path is null, returns empty string
+     * - Replaces all "\\" with "/"
+     * - Preserves drive letters (e.g., D:/folder/file.zip)
+     * - Does not break already-valid Unix paths
+     * - Avoids double slashes (except protocol cases)
+     */
+    private static String normalizePathToUnix(String path) {
+
+        // Return empty string if input is null or empty
+        if (path == null || path.isEmpty()) {
+            return "";
+        }
+
+        // Replace backslashes with forward slashes
+        String normalized = path.replace("\\", "/");
+
+        // Remove duplicate slashes except after protocol (e.g., file://, http://)
+        int protocolIdx = normalized.indexOf("://");
+        String prefix = "";
+        String rest = normalized;
+
+        if (protocolIdx != -1) {
+            prefix = normalized.substring(0, protocolIdx + 3);
+            rest = normalized.substring(protocolIdx + 3);
+        }
+
+        // Replace multiple slashes with single slash in the rest
+        rest = rest.replaceAll("/{2,}", "/");
+
+        return prefix + rest;
+    }
+
+    // =========================
+    // MAIN ENTRY
+    // =========================
 
     public static void main(String[] args) {
 
@@ -115,6 +126,10 @@ public class MultiZipHandler {
             System.exit(1);
         }
     }
+
+    // =========================
+    // CORE PIPELINE
+    // =========================
 
     private static List<String> collectInputZips(String[] args, int offset) {
 
@@ -168,6 +183,10 @@ public class MultiZipHandler {
         // Delete temporary workspace after completion
         deleteRecursive(tempRoot);
     }
+
+    // =========================
+    // FILE OPERATIONS
+    // =========================
 
     private static void verifyZipExists(File zipFile) {
 
