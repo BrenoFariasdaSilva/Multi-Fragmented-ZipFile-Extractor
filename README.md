@@ -51,9 +51,8 @@ Multi-Fragmented-ZipFile-Extractor is a Java command-line tool for merging multi
     - [Linux (Debian/Ubuntu)](#linux-debianubuntu)
     - [macOS](#macos)
   - [Run Program](#run-program)
-    - [Log Levels (Java Runtime Logging Control)](#log-levels-java-runtime-logging-control)
-      - [Supported log levels](#supported-log-levels)
-      - [Default behavior](#default-behavior)
+    - [Supported log levels](#supported-log-levels)
+    - [Examples:](#examples)
     - [Dependencies](#dependencies)
   - [Usage](#usage)
   - [Results](#results)
@@ -166,37 +165,46 @@ To run the Java program after building the JAR with Maven, use the following com
 java -jar target/zip-extractor-1.0.jar <output.zip> <input1.zip> <input2.zip> ...
 ```
 
-- `<output.zip>`: Path to the merged output ZIP file to create.
-- `<input1.zip> <input2.zip> ...`: List of input ZIP files to merge. At least one input ZIP is required.
+Optional: Log level control
 
-The program prints a JSON object to stdout on completion:
+You can control verbosity using the --log flag:
 
-- On success:
-  ```json
-  {"status":"success","output":"<output.zip>"}
-  ```
-- On error:
-  ```json
-  {"status":"error","message":"<error message>"}
-  ```
-
-This output is suitable for integration with Python or other automation tools via subprocess parsing.
-
-### Log Levels (Java Runtime Logging Control)
-
-The JAR now supports controlled logging verbosity through an optional `--log` argument.
-
-#### Supported log levels
+### Supported log levels
 
 - `ERROR` → Only critical failures
 - `WARN` → Errors + warnings (minimal noise)
 - `INFO` → Default mode (recommended, balanced output)
 - `DEBUG` → Full verbose output (development only)
 
-#### Default behavior
+### Examples:
 
-If no log level is provided, the system runs in:
-- `INFO` mode by default, which provides a good balance of useful information without overwhelming the user with debug details.
+```bash
+java -jar target/zip-extractor-1.0.jar --log=INFO  output.zip input1.zip input2.zip
+java -jar target/zip-extractor-1.0.jar --log=WARN  output.zip input1.zip input2.zip
+java -jar target/zip-extractor-1.0.jar --log=ERROR output.zip input1.zip input2.zip
+java -jar target/zip-extractor-1.0.jar --log=DEBUG output.zip input1.zip input2.zip
+```
+
+Parameters
+<output.zip> → Path of final merged ZIP
+<input.zip> → One or more input ZIP files
+
+Output format
+
+On success:
+
+```json
+{"status":"success","output":"<output.zip>"}
+```
+
+On failure:
+
+```json
+{"status":"error","message":"<error message>"}
+```
+
+This output is suitable for integration with Python or other automation tools via subprocess parsing.
+
 
 ### Dependencies
 
