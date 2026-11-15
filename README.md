@@ -29,24 +29,6 @@ Multi-Fragmented-ZipFile-Extractor is a Java command-line tool for merging multi
 ![GitHub Last Commit](https://img.shields.io/github/last-commit/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
 ![GitHub Created At](https://img.shields.io/github/created-at/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
 ![wakatime](https://wakatime.com/badge/github/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor.svg)
-
-</div>
-
-<div align="center">
-
-![Maven Build](https://github.com/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor/actions/workflows/maven-build.yml/badge.svg)
-![Java 25](https://img.shields.io/badge/Java-25-blue?logo=openjdk)
-![Maven Build](https://img.shields.io/badge/Maven-Build-orange?logo=apachemaven)
-![GitHub Code Size in Bytes](https://img.shields.io/github/languages/code-size/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
-![GitHub Commits](https://img.shields.io/github/commit-activity/t/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor/main)
-![GitHub Last Commit](https://img.shields.io/github/last-commit/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
-![GitHub Forks](https://img.shields.io/github/forks/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
-![GitHub Language Count](https://img.shields.io/github/languages/count/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
-![GitHub License](https://img.shields.io/github/license/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
-![GitHub Stars](https://img.shields.io/github/stars/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
-![GitHub Contributors](https://img.shields.io/github/contributors/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
-![GitHub Created At](https://img.shields.io/github/created-at/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
-![wakatime](https://wakatime.com/badge/github/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor.svg)
 [![GitHub Repository Size](https://img.shields.io/github/repo-size/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)](https://github.com/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)
 [![Open Issues](https://img.shields.io/github/issues/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)](https://github.com/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor/issues)
 [![Closed Issues](https://img.shields.io/github/issues-closed/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor)](https://github.com/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor/issues?q=is%3Aissue+is%3Aclosed)
@@ -55,7 +37,6 @@ Multi-Fragmented-ZipFile-Extractor is a Java command-line tool for merging multi
 [![Monthly Commits](https://img.shields.io/github/commit-activity/m/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor/main)](https://github.com/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor/commits)
 [![Merged PRs](https://img.shields.io/github/issues-search/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor?query=is%3Apr%20is%3Amerged&label=merged%20PRs&color=blue)](https://github.com/BrenoFariasdaSilva/Multi-Fragmented-ZipFile-Extractor/pulls?q=is%3Apr+is%3Amerged)
 ![Purpose](https://img.shields.io/badge/Purpose-Split%20ZIP%20Extraction-3577af)
-
 ![Repobeats Statistics](https://repobeats.axiom.co/api/embed/a61430b22793e7c2efc88d8228fe6bdc6317d44e.svg)
 
 </div>
